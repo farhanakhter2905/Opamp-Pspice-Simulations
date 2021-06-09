@@ -1,0 +1,22 @@
+* F:\Study\2nd year\Analog electronic circuit\New folder\lowpass.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Mar 21 19:27:28 2021
+
+
+
+** Analysis setup **
+.ac LIN 101 10 10.00K
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "lowpass.net"
+.INC "lowpass.als"
+
+
+.probe
+
+
+.END

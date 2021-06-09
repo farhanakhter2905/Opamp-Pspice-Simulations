@@ -1,0 +1,304 @@
+
+**** 03/21/21 00:13:01 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\schmitt trigger.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Mar 20 23:59:39 2021
+
+
+
+** Analysis setup **
+.tran 0ns 10ms
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "schmitt trigger.net"
+
+**** INCLUDING "schmitt trigger.net" ****
+* Schematics Netlist *
+
+
+
+R_R1         $N_0002 $N_0001  1k  
+R_R2         $N_0001 $N_0003  11k  
+V_V3         0 $N_0004 12
+V_V4         $N_0005 0 12
+V_V2         $N_0006 0 DC 0 AC 0
++SIN 0 5 1000 0 0 0
+X_U3         $N_0001 $N_0006 $N_0005 $N_0004 $N_0003 uA741
+V_V1         $N_0002 0 1.1
+
+**** RESUMING "schmitt trigger.cir" ****
+.INC "schmitt trigger.als"
+
+
+
+**** INCLUDING "schmitt trigger.als" ****
+* Schematics Aliases *
+
+.ALIASES
+R_R1            R1(1=$N_0002 2=$N_0001 )
+R_R2            R2(1=$N_0001 2=$N_0003 )
+V_V3            V3(+=0 -=$N_0004 )
+V_V4            V4(+=$N_0005 -=0 )
+V_V2            V2(+=$N_0006 -=0 )
+X_U3            U3(+=$N_0001 -=$N_0006 V+=$N_0005 V-=$N_0004 OUT=$N_0003 )
+V_V1            V1(+=$N_0002 -=0 )
+.ENDALIASES
+
+
+**** RESUMING "schmitt trigger.cir" ****
+.probe
+
+
+.END
+
+**** 03/21/21 00:13:01 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\schmitt trigger.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U3.dx         
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 03/21/21 00:13:01 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\schmitt trigger.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U3.qx         
+               NPN             
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 03/21/21 00:13:01 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\schmitt trigger.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U3.6)   -1.5092 (X_U3.7)   11.6580 (X_U3.8)   11.6580 (X_U3.9)    0.0000     
+
+($N_0001)    1.9760                   ($N_0002)    1.1000                       
+
+($N_0003)   11.6130                   ($N_0004)  -12.0000                       
+
+($N_0005)   12.0000                   ($N_0006)    0.0000                       
+
+(X_U3.10)    1.3360                   (X_U3.11)   12.0000                       
+
+(X_U3.12)   11.9200                   (X_U3.13)    1.3360                       
+
+(X_U3.14)    1.3640                   (X_U3.53)   11.0000                       
+
+(X_U3.54)  -11.0000                   (X_U3.90)     .8921                       
+
+(X_U3.91)   40.0000                   (X_U3.92)  -40.0000                       
+
+(X_U3.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V3        -1.337E-03
+    V_V4        -1.321E-03
+    V_V2         1.202E-11
+    V_V1         8.760E-04
+    X_U3.vb     -1.509E-05
+    X_U3.vc     -1.600E-05
+    X_U3.ve      2.261E-11
+    X_U3.vlim    8.921E-04
+    X_U3.vlp    -3.911E-11
+    X_U3.vln    -4.090E-11
+
+    TOTAL POWER DISSIPATION   3.09E-02  WATTS
+
+
+**** 03/21/21 00:13:01 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\schmitt trigger.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** VOLTAGE-CONTROLLED CURRENT SOURCES
+
+
+NAME         X_U3.ga     X_U3.gcm  
+I-SOURCE     1.510E-05   7.964E-09
+
+
+**** VOLTAGE-CONTROLLED VOLTAGE SOURCES
+
+
+NAME         X_U3.egnd 
+V-SOURCE     0.000E+00
+I-SOURCE    -8.920E-04
+
+
+**** CURRENT-CONTROLLED CURRENT SOURCES
+
+
+NAME         X_U3.fb   
+I-SOURCE    -1.175E-01
+
+
+**** CURRENT-CONTROLLED VOLTAGE SOURCES
+
+
+NAME         X_U3.hlim 
+V-SOURCE     8.921E-01
+I-SOURCE    -1.784E-12
+
+
+**** DIODES
+
+
+NAME         X_U3.dc     X_U3.de     X_U3.dlp    X_U3.dln    X_U3.dp   
+MODEL        X_U3.dx     X_U3.dx     X_U3.dx     X_U3.dx     X_U3.dx   
+ID           1.60E-05   -2.26E-11   -3.91E-11   -4.09E-11   -2.40E-11 
+VD           6.13E-01   -2.26E+01   -3.91E+01   -4.09E+01   -2.40E+01 
+REQ          1.62E+03    1.00E+12    1.00E+12    1.00E+12    1.00E+12 
+CAP          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+
+
+**** BIPOLAR JUNCTION TRANSISTORS
+
+
+NAME         X_U3.q1     X_U3.q2   
+MODEL        X_U3.qx     X_U3.qx   
+IB          -1.20E-11    1.61E-07 
+IC           2.27E-11    1.51E-05 
+VBE         -1.34E+00    6.12E-01 
+VBC         -1.20E+01   -9.94E+00 
+VCE          1.07E+01    1.06E+01 
+BETADC      -1.89E+00    9.38E+01 
+GM           0.00E+00    5.84E-04 
+RPI          9.38E+13    1.61E+05 
+RX           0.00E+00    0.00E+00 
+RO           1.00E+12    1.00E+12 
+CBE          0.00E+00    0.00E+00 
+CBC          0.00E+00    0.00E+00 
+CJS          0.00E+00    0.00E+00 
+BETAAC       0.00E+00    9.38E+01 
+CBX/CBX2     0.00E+00    0.00E+00 
+FT/FT2       0.00E+00    9.29E+15 
+
+
+**** 03/21/21 00:13:01 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\schmitt trigger.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U3.6)   -1.5092 (X_U3.7)   11.6580 (X_U3.8)   11.6580 (X_U3.9)    0.0000     
+
+($N_0001)    1.9760                   ($N_0002)    1.1000                       
+
+($N_0003)   11.6130                   ($N_0004)  -12.0000                       
+
+($N_0005)   12.0000                   ($N_0006)    0.0000                       
+
+(X_U3.10)    1.3360                   (X_U3.11)   12.0000                       
+
+(X_U3.12)   11.9200                   (X_U3.13)    1.3360                       
+
+(X_U3.14)    1.3640                   (X_U3.53)   11.0000                       
+
+(X_U3.54)  -11.0000                   (X_U3.90)     .8921                       
+
+(X_U3.91)   40.0000                   (X_U3.92)  -40.0000                       
+
+(X_U3.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V3        -1.337E-03
+    V_V4        -1.321E-03
+    V_V2         1.202E-11
+    V_V1         8.760E-04
+    X_U3.vb     -1.509E-05
+    X_U3.vc     -1.600E-05
+    X_U3.ve      2.261E-11
+    X_U3.vlim    8.921E-04
+    X_U3.vlp    -3.911E-11
+    X_U3.vln    -4.090E-11
+
+    TOTAL POWER DISSIPATION   3.09E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .03
+

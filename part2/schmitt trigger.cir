@@ -1,0 +1,23 @@
+* F:\Study\2nd year\Analog electronic circuit\New folder\schmitt trigger.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Mar 20 23:59:39 2021
+
+
+
+** Analysis setup **
+.tran 0ns 10ms
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "schmitt trigger.net"
+.INC "schmitt trigger.als"
+
+
+.probe
+
+
+.END

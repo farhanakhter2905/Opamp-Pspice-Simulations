@@ -1,0 +1,205 @@
+
+**** 03/20/21 23:44:52 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\peakdetector.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Mar 20 23:44:17 2021
+
+
+
+** Analysis setup **
+.tran 0ns 2ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "peakdetector.net"
+
+**** INCLUDING peakdetector.net ****
+* Schematics Netlist *
+
+
+
+D_D1         $N_0001 $N_0002 D1N4002 
+X_U1         $N_0003 $N_0002 $N_0004 $N_0005 $N_0001 uA741
+X_U2         $N_0002 $N_0008 $N_0009 $N_0010 $N_0008 uA741
+C_C1         0 $N_0002  1u  
+R_R1         0 $N_0002  10k  
+V_V1         $N_0003 0 DC 0 AC 0
++SIN 0 1 1k 0 0 0
+V_V3         $N_0004 0 12
+V_V2         0 $N_0005 12
+V_V4         $N_0009 0 12
+V_V5         0 $N_0010 12
+
+**** RESUMING peakdetector.cir ****
+.INC "peakdetector.als"
+
+
+
+**** INCLUDING peakdetector.als ****
+* Schematics Aliases *
+
+.ALIASES
+D_D1            D1(1=$N_0001 2=$N_0002 )
+X_U1            U1(+=$N_0003 -=$N_0002 V+=$N_0004 V-=$N_0005 OUT=$N_0001 )
+X_U2            U2(+=$N_0002 -=$N_0008 V+=$N_0009 V-=$N_0010 OUT=$N_0008 )
+C_C1            C1(1=0 2=$N_0002 )
+R_R1            R1(1=0 2=$N_0002 )
+V_V1            V1(+=$N_0003 -=0 )
+V_V3            V3(+=$N_0004 -=0 )
+V_V2            V2(+=0 -=$N_0005 )
+V_V4            V4(+=$N_0009 -=0 )
+V_V5            V5(+=0 -=$N_0010 )
+.ENDALIASES
+
+
+**** RESUMING peakdetector.cir ****
+.probe
+
+
+.END
+
+**** 03/20/21 23:44:52 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\peakdetector.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4002         X_U1.dx         X_U2.dx         
+          IS   14.110000E-09  800.000000E-18  800.000000E-18 
+           N    1.984                                        
+         ISR  100.000000E-12                                 
+         IKF   94.81                                         
+          BV  100.1                                          
+         IBV   10                                            
+          RS     .03389         1               1            
+          TT    4.761000E-06                                 
+         CJO   51.170000E-12                                 
+          VJ     .3905                                       
+           M     .2762                                       
+
+
+**** 03/20/21 23:44:52 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\peakdetector.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         X_U2.qx         
+               NPN             NPN             
+          IS  800.000000E-18  800.000000E-18 
+          BF   93.75           93.75         
+          NF    1               1            
+          BR    1               1            
+          NR    1               1            
+          CN    2.42            2.42         
+           D     .87             .87         
+
+
+**** 03/20/21 23:44:52 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\peakdetector.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)-12.19E-06 (X_U1.7)     .1291 (X_U1.8)     .1291 (X_U1.9)    0.0000     
+
+(X_U2.6)-30.18E-09 (X_U2.7) 129.4E-06 (X_U2.8) 129.4E-06 (X_U2.9)    0.0000     
+
+($N_0001)     .1291                   ($N_0002) 18.60E-06                       
+
+($N_0003)    0.0000                   ($N_0004)   12.0000                       
+
+($N_0005)  -12.0000                   ($N_0008) 37.85E-06                       
+
+($N_0009)   12.0000                   ($N_0010)  -12.0000                       
+
+(X_U1.10)    -.6077                   (X_U1.11)   11.9600                       
+
+(X_U1.12)   11.9600                   (X_U1.13)    -.5938                       
+
+(X_U1.14)    -.5938                   (X_U1.53)   11.0000                       
+
+(X_U1.54)  -11.0000                   (X_U1.90) 150.9E-06                       
+
+(X_U1.91)   40.0000                   (X_U1.92)  -40.0000                       
+
+(X_U1.99)    0.0000                   (X_U2.10)    -.6076                       
+
+(X_U2.11)   11.9600                   (X_U2.12)   11.9600                       
+
+(X_U2.13)    -.5938                   (X_U2.14)    -.5938                       
+
+(X_U2.53)   11.0000                   (X_U2.54)  -11.0000                       
+
+(X_U2.90)     .0018                   (X_U2.91)   40.0000                       
+
+(X_U2.92)  -40.0000                   (X_U2.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -7.973E-08
+    V_V3        -1.337E-03
+    V_V2        -1.337E-03
+    V_V4        -1.337E-03
+    V_V5        -1.337E-03
+    X_U1.vb     -1.219E-10
+    X_U1.vc      1.087E-11
+    X_U1.ve      1.113E-11
+    X_U1.vlim    1.509E-07
+    X_U1.vlp    -4.000E-11
+    X_U1.vln    -4.000E-11
+    X_U2.vb     -3.018E-13
+    X_U2.vc      1.100E-11
+    X_U2.ve      1.100E-11
+    X_U2.vlim    1.832E-06
+    X_U2.vlp    -4.000E-11
+    X_U2.vln    -4.001E-11
+
+    TOTAL POWER DISSIPATION   6.42E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .02
+

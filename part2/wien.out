@@ -1,0 +1,172 @@
+
+**** 03/21/21 18:48:48 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\wien.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Mar 21 18:48:45 2021
+
+
+
+** Analysis setup **
+.tran 1ns 5ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "wien.net"
+
+**** INCLUDING wien.net ****
+* Schematics Netlist *
+
+
+
+R_R1         $N_0002 $N_0001  15.9k  
+V_V1         $N_0003 0 12
+V_V2         0 $N_0004 12
+C_C1         $N_0005 $N_0002  0.01u  
+X_U1         $N_0005 $N_0006 $N_0003 $N_0004 $N_0001 uA741
+R_R13         $N_0001 0  2.5k  
+R_R14         $N_0006 $N_0001  20k  
+R_R15         0 $N_0005  15.9k  
+C_C3         0 $N_0005  0.01u  
+R_R4         0 $N_0006  10k  
+
+**** RESUMING wien.cir ****
+.INC "wien.als"
+
+
+
+**** INCLUDING wien.als ****
+* Schematics Aliases *
+
+.ALIASES
+R_R1            R1(1=$N_0002 2=$N_0001 )
+V_V1            V1(+=$N_0003 -=0 )
+V_V2            V2(+=0 -=$N_0004 )
+C_C1            C1(1=$N_0005 2=$N_0002 )
+X_U1            U1(+=$N_0005 -=$N_0006 V+=$N_0003 V-=$N_0004 OUT=$N_0001 )
+R_R13           R13(1=$N_0001 2=0 )
+R_R14           R14(1=$N_0006 2=$N_0001 )
+R_R15           R15(1=0 2=$N_0005 )
+C_C3            C3(1=0 2=$N_0005 )
+R_R4            R4(1=0 2=$N_0006 )
+.ENDALIASES
+
+
+**** RESUMING wien.cir ****
+.probe
+
+
+.END
+
+**** 03/21/21 18:48:48 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\wien.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.dx         
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 03/21/21 18:48:48 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\wien.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         
+               NPN             
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 03/21/21 18:48:48 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\wien.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6) 215.7E-09 (X_U1.7)    -.0022 (X_U1.8)    -.0022 (X_U1.9)    0.0000     
+
+($N_0001)    -.0022                   ($N_0002)    -.0022                       
+
+($N_0003)   12.0000                   ($N_0004)  -12.0000                       
+
+($N_0005)    -.0013                   ($N_0006)    -.0012                       
+
+(X_U1.10)    -.6089                   (X_U1.11)   11.9600                       
+
+(X_U1.12)   11.9600                   (X_U1.13)    -.5951                       
+
+(X_U1.14)    -.5951                   (X_U1.53)   11.0000                       
+
+(X_U1.54)  -11.0000                   (X_U1.90)-896.2E-06                       
+
+(X_U1.91)   40.0000                   (X_U1.92)  -40.0000                       
+
+(X_U1.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.337E-03
+    V_V2        -1.337E-03
+    X_U1.vb      2.157E-12
+    X_U1.vc      1.100E-11
+    X_U1.ve      1.100E-11
+    X_U1.vlim   -8.962E-07
+    X_U1.vlp    -4.000E-11
+    X_U1.vln    -4.000E-11
+
+    TOTAL POWER DISSIPATION   3.21E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .02
+

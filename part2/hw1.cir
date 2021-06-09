@@ -1,0 +1,22 @@
+* F:\Study\2nd year\Analog electronic circuit\New folder\hw1.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Mar 20 23:13:46 2021
+
+
+
+** Analysis setup **
+.tran 0ns 5ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "hw1.net"
+.INC "hw1.als"
+
+
+.probe
+
+
+.END

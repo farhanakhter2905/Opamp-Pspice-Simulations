@@ -1,0 +1,391 @@
+
+**** 03/21/21 18:40:41 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\fw.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Mar 20 23:26:08 2021
+
+
+
+** Analysis setup **
+.tran 0ns 2ms
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "fw.net"
+
+**** INCLUDING fw.net ****
+* Schematics Netlist *
+
+
+
+D_D2         $N_0001 $N_0002 D1N4002 
+D_D1         $N_0003 $N_0001 D1N4002 
+X_U1         0 $N_0004 $N_0005 $N_0006 $N_0001 uA741
+X_U2         $N_0002 $N_0009 $N_0010 $N_0011 $N_0012 uA741
+V_V4         $N_0010 0 12
+V_V5         0 $N_0011 12
+V_V3         0 $N_0006 12
+V_V2         $N_0005 0 12
+R_R1         $N_0015 $N_0004  10k  
+R_R2         $N_0004 $N_0003  10k  
+R_R4         $N_0004 $N_0002  10k  
+R_R3         $N_0003 $N_0009  10k  
+V_V1         $N_0015 0 DC 0 AC 0
++SIN 0 5 1k 0 0 0
+R_R5         $N_0009 $N_0012  10k  
+
+**** RESUMING fw.cir ****
+.INC "fw.als"
+
+
+
+**** INCLUDING fw.als ****
+* Schematics Aliases *
+
+.ALIASES
+D_D2            D2(1=$N_0001 2=$N_0002 )
+D_D1            D1(1=$N_0003 2=$N_0001 )
+X_U1            U1(+=0 -=$N_0004 V+=$N_0005 V-=$N_0006 OUT=$N_0001 )
+X_U2            U2(+=$N_0002 -=$N_0009 V+=$N_0010 V-=$N_0011 OUT=$N_0012 )
+V_V4            V4(+=$N_0010 -=0 )
+V_V5            V5(+=0 -=$N_0011 )
+V_V3            V3(+=0 -=$N_0006 )
+V_V2            V2(+=$N_0005 -=0 )
+R_R1            R1(1=$N_0015 2=$N_0004 )
+R_R2            R2(1=$N_0004 2=$N_0003 )
+R_R4            R4(1=$N_0004 2=$N_0002 )
+R_R3            R3(1=$N_0003 2=$N_0009 )
+V_V1            V1(+=$N_0015 -=0 )
+R_R5            R5(1=$N_0009 2=$N_0012 )
+.ENDALIASES
+
+
+**** RESUMING fw.cir ****
+.probe
+
+
+.END
+
+**** 03/21/21 18:40:41 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\fw.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4002         X_U1.dx         X_U2.dx         
+          IS   14.110000E-09  800.000000E-18  800.000000E-18 
+           N    1.984                                        
+         ISR  100.000000E-12                                 
+         IKF   94.81                                         
+          BV  100.1                                          
+         IBV   10                                            
+          RS     .03389         1               1            
+          TT    4.761000E-06                                 
+         CJO   51.170000E-12                                 
+          VJ     .3905                                       
+           M     .2762                                       
+
+
+**** 03/21/21 18:40:41 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\fw.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         X_U2.qx         
+               NPN             NPN             
+          IS  800.000000E-18  800.000000E-18 
+          BF   93.75           93.75         
+          NF    1               1            
+          BR    1               1            
+          NR    1               1            
+          CN    2.42            2.42         
+           D     .87             .87         
+
+
+**** 03/21/21 18:40:41 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\fw.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)-11.26E-06 (X_U1.7)     .1192 (X_U1.8)     .1192 (X_U1.9)    0.0000     
+
+(X_U2.6)-145.5E-09 (X_U2.7)     .0015 (X_U2.8)     .0015 (X_U2.9)    0.0000     
+
+($N_0001)     .1192                   ($N_0002) 513.7E-06                       
+
+($N_0003) 339.9E-06                   ($N_0004) 18.65E-06                       
+
+($N_0005)   12.0000                   ($N_0006)  -12.0000                       
+
+($N_0009) 532.9E-06                   ($N_0010)   12.0000                       
+
+($N_0011)  -12.0000                   ($N_0012)     .0015                       
+
+($N_0015)    0.0000                   (X_U1.10)    -.6077                       
+
+(X_U1.11)   11.9600                   (X_U1.12)   11.9600                       
+
+(X_U1.13)    -.5938                   (X_U1.14)    -.5938                       
+
+(X_U1.53)   11.0000                   (X_U1.54)  -11.0000                       
+
+(X_U1.90) 142.4E-06                   (X_U1.91)   40.0000                       
+
+(X_U1.92)  -40.0000                   (X_U1.99)    0.0000                       
+
+(X_U2.10)    -.6071                   (X_U2.11)   11.9600                       
+
+(X_U2.12)   11.9600                   (X_U2.13)    -.5933                       
+
+(X_U2.14)    -.5933                   (X_U2.53)   11.0000                       
+
+(X_U2.54)  -11.0000                   (X_U2.90) 99.08E-06                       
+
+(X_U2.91)   40.0000                   (X_U2.92)  -40.0000                       
+
+(X_U2.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V4        -1.337E-03
+    V_V5        -1.337E-03
+    V_V3        -1.337E-03
+    V_V2        -1.337E-03
+    V_V1         1.865E-09
+    X_U1.vb     -1.126E-10
+    X_U1.vc      1.088E-11
+    X_U1.ve      1.112E-11
+    X_U1.vlim    1.424E-07
+    X_U1.vlp    -4.000E-11
+    X_U1.vln    -4.000E-11
+    X_U2.vb     -1.455E-12
+    X_U2.vc      1.100E-11
+    X_U2.ve      1.100E-11
+    X_U2.vlim    9.908E-08
+    X_U2.vlp    -4.000E-11
+    X_U2.vln    -4.000E-11
+
+    TOTAL POWER DISSIPATION   6.42E-02  WATTS
+
+
+**** 03/21/21 18:40:41 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\fw.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** VOLTAGE-CONTROLLED CURRENT SOURCES
+
+
+NAME         X_U1.ga     X_U1.gcm    X_U2.ga     X_U2.gcm  
+I-SOURCE    -3.510E-09  -3.622E-09  -3.618E-09  -3.619E-09
+
+
+**** VOLTAGE-CONTROLLED VOLTAGE SOURCES
+
+
+NAME         X_U1.egnd   X_U2.egnd 
+V-SOURCE     0.000E+00   0.000E+00
+I-SOURCE    -1.909E-07  -1.281E-07
+
+
+**** CURRENT-CONTROLLED CURRENT SOURCES
+
+
+NAME         X_U1.fb     X_U2.fb   
+I-SOURCE    -1.193E-03  -1.648E-05
+
+
+**** CURRENT-CONTROLLED VOLTAGE SOURCES
+
+
+NAME         X_U1.hlim   X_U2.hlim 
+V-SOURCE     1.424E-04   9.908E-05
+I-SOURCE    -2.849E-16  -1.982E-16
+
+
+**** DIODES
+
+
+NAME         D_D2        D_D1        X_U1.dc     X_U1.de     X_U1.dlp  
+MODEL        D1N4002     D1N4002     X_U1.dx     X_U1.dx     X_U1.dx   
+ID           1.29E-07   -1.28E-08   -1.09E-11   -1.11E-11   -4.00E-11 
+VD           1.19E-01   -1.19E-01   -1.09E+01   -1.11E+01   -4.00E+01 
+REQ          3.58E+05    3.65E+07    1.00E+12    1.00E+12    1.00E+12 
+CAP          6.99E-11    4.77E-11    0.00E+00    0.00E+00    0.00E+00 
+
+NAME         X_U1.dln    X_U1.dp     X_U2.dc     X_U2.de     X_U2.dlp  
+MODEL        X_U1.dx     X_U1.dx     X_U2.dx     X_U2.dx     X_U2.dx   
+ID          -4.00E-11   -2.40E-11   -1.10E-11   -1.10E-11   -4.00E-11 
+VD          -4.00E+01   -2.40E+01   -1.10E+01   -1.10E+01   -4.00E+01 
+REQ          1.00E+12    1.00E+12    1.00E+12    1.00E+12    1.00E+12 
+CAP          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+
+NAME         X_U2.dln    X_U2.dp   
+MODEL        X_U2.dx     X_U2.dx   
+ID          -4.00E-11   -2.40E-11 
+VD          -4.00E+01   -2.40E+01 
+REQ          1.00E+12    1.00E+12 
+CAP          0.00E+00    0.00E+00 
+
+
+**** BIPOLAR JUNCTION TRANSISTORS
+
+
+NAME         X_U1.q1     X_U1.q2     X_U2.q1     X_U2.q2   
+MODEL        X_U1.qx     X_U1.qx     X_U2.qx     X_U2.qx   
+IB           7.98E-08    7.97E-08    7.98E-08    7.97E-08 
+IC           7.48E-06    7.48E-06    7.48E-06    7.48E-06 
+VBE          5.94E-01    5.94E-01    5.94E-01    5.94E-01 
+VBC         -1.20E+01   -1.20E+01   -1.20E+01   -1.20E+01 
+VCE          1.26E+01    1.26E+01    1.26E+01    1.26E+01 
+BETADC       9.38E+01    9.38E+01    9.38E+01    9.38E+01 
+GM           2.89E-04    2.89E-04    2.89E-04    2.89E-04 
+RPI          3.24E+05    3.24E+05    3.24E+05    3.24E+05 
+RX           0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+RO           1.00E+12    1.00E+12    1.00E+12    1.00E+12 
+CBE          0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBC          0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CJS          0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+BETAAC       9.38E+01    9.38E+01    9.38E+01    9.38E+01 
+CBX/CBX2     0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+FT/FT2       4.60E+15    4.60E+15    4.60E+15    4.60E+15 
+
+
+**** 03/21/21 18:40:41 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\fw.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)-11.26E-06 (X_U1.7)     .1192 (X_U1.8)     .1192 (X_U1.9)    0.0000     
+
+(X_U2.6)-145.5E-09 (X_U2.7)     .0015 (X_U2.8)     .0015 (X_U2.9)    0.0000     
+
+($N_0001)     .1192                   ($N_0002) 513.7E-06                       
+
+($N_0003) 339.9E-06                   ($N_0004) 18.65E-06                       
+
+($N_0005)   12.0000                   ($N_0006)  -12.0000                       
+
+($N_0009) 532.9E-06                   ($N_0010)   12.0000                       
+
+($N_0011)  -12.0000                   ($N_0012)     .0015                       
+
+($N_0015)    0.0000                   (X_U1.10)    -.6077                       
+
+(X_U1.11)   11.9600                   (X_U1.12)   11.9600                       
+
+(X_U1.13)    -.5938                   (X_U1.14)    -.5938                       
+
+(X_U1.53)   11.0000                   (X_U1.54)  -11.0000                       
+
+(X_U1.90) 142.0E-06                   (X_U1.91)   40.0000                       
+
+(X_U1.92)  -40.0000                   (X_U1.99)    0.0000                       
+
+(X_U2.10)    -.6071                   (X_U2.11)   11.9600                       
+
+(X_U2.12)   11.9600                   (X_U2.13)    -.5933                       
+
+(X_U2.14)    -.5933                   (X_U2.53)   11.0000                       
+
+(X_U2.54)  -11.0000                   (X_U2.90) 99.08E-06                       
+
+(X_U2.91)   40.0000                   (X_U2.92)  -40.0000                       
+
+(X_U2.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V4        -1.337E-03
+    V_V5        -1.337E-03
+    V_V3        -1.337E-03
+    V_V2        -1.337E-03
+    V_V1         1.865E-09
+    X_U1.vb     -1.126E-10
+    X_U1.vc      1.088E-11
+    X_U1.ve      1.112E-11
+    X_U1.vlim    1.420E-07
+    X_U1.vlp    -4.000E-11
+    X_U1.vln    -4.000E-11
+    X_U2.vb     -1.456E-12
+    X_U2.vc      1.100E-11
+    X_U2.ve      1.100E-11
+    X_U2.vlim    9.908E-08
+    X_U2.vlp    -4.000E-11
+    X_U2.vln    -4.000E-11
+
+    TOTAL POWER DISSIPATION   6.42E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .03
+

@@ -1,0 +1,179 @@
+
+**** 03/21/21 18:42:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\hw1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Mar 20 23:13:46 2021
+
+
+
+** Analysis setup **
+.tran 0ns 5ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "hw1.net"
+
+**** INCLUDING hw1.net ****
+* Schematics Netlist *
+
+
+
+D_D2         $N_0001 $N_0002 D1N4002 
+R_R2         $N_0004 $N_0003  1k  
+X_U1         0 $N_0003 $N_0005 $N_0006 $N_0001 uA741
+R_R1         $N_0003 $N_0002  2k  
+V_V2         $N_0005 0 12
+V_V3         0 $N_0006 12
+D_D1         $N_0003 $N_0001 D1N4002 
+V_V1         $N_0004 0 DC 0 AC 0
++SIN 0 2.5 1000 0 0 0
+
+**** RESUMING hw1.cir ****
+.INC "hw1.als"
+
+
+
+**** INCLUDING hw1.als ****
+* Schematics Aliases *
+
+.ALIASES
+D_D2            D2(1=$N_0001 2=$N_0002 )
+R_R2            R2(1=$N_0004 2=$N_0003 )
+X_U1            U1(+=0 -=$N_0003 V+=$N_0005 V-=$N_0006 OUT=$N_0001 )
+R_R1            R1(1=$N_0003 2=$N_0002 )
+V_V2            V2(+=$N_0005 -=0 )
+V_V3            V3(+=0 -=$N_0006 )
+D_D1            D1(1=$N_0003 2=$N_0001 )
+V_V1            V1(+=$N_0004 -=0 )
+.ENDALIASES
+
+
+**** RESUMING hw1.cir ****
+.probe
+
+
+.END
+
+**** 03/21/21 18:42:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\hw1.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4002         X_U1.dx         
+          IS   14.110000E-09  800.000000E-18 
+           N    1.984                        
+         ISR  100.000000E-12                 
+         IKF   94.81                         
+          BV  100.1                          
+         IBV   10                            
+          RS     .03389         1            
+          TT    4.761000E-06                 
+         CJO   51.170000E-12                 
+          VJ     .3905                       
+           M     .2762                       
+
+
+**** 03/21/21 18:42:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\hw1.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         
+               NPN             
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 03/21/21 18:42:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\New folder\hw1.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)-9.503E-06 (X_U1.7)     .1006 (X_U1.8)     .1006 (X_U1.9)    0.0000     
+
+($N_0001)     .1006                   ($N_0002) 191.3E-06                       
+
+($N_0003) 18.75E-06                   ($N_0004)    0.0000                       
+
+($N_0005)   12.0000                   ($N_0006)  -12.0000                       
+
+(X_U1.10)    -.6077                   (X_U1.11)   11.9600                       
+
+(X_U1.12)   11.9600                   (X_U1.13)    -.5938                       
+
+(X_U1.14)    -.5938                   (X_U1.53)   11.0000                       
+
+(X_U1.54)  -11.0000                   (X_U1.90) 92.01E-06                       
+
+(X_U1.91)   40.0000                   (X_U1.92)  -40.0000                       
+
+(X_U1.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V2        -1.337E-03
+    V_V3        -1.337E-03
+    V_V1         1.875E-08
+    X_U1.vb     -9.503E-11
+    X_U1.vc      1.090E-11
+    X_U1.ve      1.110E-11
+    X_U1.vlim    9.201E-08
+    X_U1.vlp    -4.000E-11
+    X_U1.vln    -4.000E-11
+
+    TOTAL POWER DISSIPATION   3.21E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .03
+

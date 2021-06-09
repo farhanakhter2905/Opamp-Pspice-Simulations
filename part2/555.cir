@@ -1,0 +1,23 @@
+* F:\Study\2nd year\Analog electronic circuit\New folder\555.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Mar 21 19:50:52 2021
+
+
+
+** Analysis setup **
+.tran 0ns 10ms
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "555.net"
+.INC "555.als"
+
+
+.probe
+
+
+.END

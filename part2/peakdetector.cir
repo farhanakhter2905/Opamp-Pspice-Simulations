@@ -1,0 +1,22 @@
+* F:\Study\2nd year\Analog electronic circuit\New folder\peakdetector.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Mar 20 23:44:17 2021
+
+
+
+** Analysis setup **
+.tran 0ns 2ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "peakdetector.net"
+.INC "peakdetector.als"
+
+
+.probe
+
+
+.END
