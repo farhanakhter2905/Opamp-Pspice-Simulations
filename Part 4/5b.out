@@ -1,0 +1,174 @@
+
+**** 11/19/20 00:38:44 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5b.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Nov 19 00:38:40 2020
+
+
+
+** Analysis setup **
+.tran 0ns 2ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "5b.net"
+
+**** INCLUDING 5b.net ****
+* Schematics Netlist *
+
+
+
+X_U1         0 $N_0001 $N_0002 $N_0003 $N_0004 uA741
+V_V1         $N_0002 0 12
+V_V2         0 $N_0003 12
+R_R5         $N_0001 $N_0004 {500k*0.5+.001}
+R_R4         $N_0007 $N_0001  10k  
+R_R1         0 $N_0008  1.6k  
+R_R2         0 $N_0009  1.6k  
+R_R3         0 $N_0007  1.6k  
+C_C1         $N_0004 $N_0008  0.1u  
+C_C2         $N_0008 $N_0009  0.1u  
+C_C3         $N_0009 $N_0007  0.1u  
+
+**** RESUMING 5b.cir ****
+.INC "5b.als"
+
+
+
+**** INCLUDING 5b.als ****
+* Schematics Aliases *
+
+.ALIASES
+X_U1            U1(+=0 -=$N_0001 V+=$N_0002 V-=$N_0003 OUT=$N_0004 )
+V_V1            V1(+=$N_0002 -=0 )
+V_V2            V2(+=0 -=$N_0003 )
+R_R5            R5(1=$N_0001 2=$N_0004 )
+R_R4            R4(1=$N_0007 2=$N_0001 )
+R_R1            R1(1=0 2=$N_0008 )
+R_R2            R2(1=0 2=$N_0009 )
+R_R3            R3(1=0 2=$N_0007 )
+C_C1            C1(1=$N_0004 2=$N_0008 )
+C_C2            C2(1=$N_0008 2=$N_0009 )
+C_C3            C3(1=$N_0009 2=$N_0007 )
+.ENDALIASES
+
+
+**** RESUMING 5b.cir ****
+.probe
+
+
+.END
+
+**** 11/19/20 00:38:44 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5b.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.dx         
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 11/19/20 00:38:44 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5b.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         
+               NPN             
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 11/19/20 00:38:44 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5b.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)-1.925E-06 (X_U1.7)     .0204 (X_U1.8)     .0204 (X_U1.9)    0.0000     
+
+($N_0001) 19.15E-06                   ($N_0002)   12.0000                       
+
+($N_0003)  -12.0000                   ($N_0004)     .0204                       
+
+($N_0007) 2.641E-06                   ($N_0008)    0.0000                       
+
+($N_0009)    0.0000                   (X_U1.10)    -.6077                       
+
+(X_U1.11)   11.9600                   (X_U1.12)   11.9600                       
+
+(X_U1.13)    -.5938                   (X_U1.14)    -.5938                       
+
+(X_U1.53)   11.0000                   (X_U1.54)  -11.0000                       
+
+(X_U1.90) 81.41E-06                   (X_U1.91)   40.0000                       
+
+(X_U1.92)  -40.0000                   (X_U1.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.337E-03
+    V_V2        -1.337E-03
+    X_U1.vb     -1.925E-11
+    X_U1.vc      1.098E-11
+    X_U1.ve      1.102E-11
+    X_U1.vlim    8.141E-08
+    X_U1.vlp    -4.000E-11
+    X_U1.vln    -4.000E-11
+
+    TOTAL POWER DISSIPATION   3.21E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .02
+

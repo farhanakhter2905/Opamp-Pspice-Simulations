@@ -1,0 +1,22 @@
+* F:\Study\2nd year\Analog electronic circuit\lab\lab3\wbf2.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Wed Nov 11 23:56:33 2020
+
+
+
+** Analysis setup **
+.ac LIN 101 1k 10000k
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "wbf2.net"
+.INC "wbf2.als"
+
+
+.probe
+
+
+.END

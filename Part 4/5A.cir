@@ -1,0 +1,22 @@
+* F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5A.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Nov 19 00:13:12 2020
+
+
+
+** Analysis setup **
+.tran 0ns 10ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "5A.net"
+.INC "5A.als"
+
+
+.probe
+
+
+.END

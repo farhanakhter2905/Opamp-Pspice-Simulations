@@ -1,0 +1,170 @@
+
+**** 11/25/20 20:28:26 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5a1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Wed Nov 25 20:28:22 2020
+
+
+
+** Analysis setup **
+.tran 0ns 2ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "5a1.net"
+
+**** INCLUDING 5a1.net ****
+* Schematics Netlist *
+
+
+
+X_U1         $N_0001 $N_0002 $N_0003 $N_0004 $N_0005 uA741
+V_V1         0 $N_0004 12
+V_V2         $N_0003 0 12
+R_R1         $N_0005 $N_0002  20k  
+R_R2         $N_0002 0  10k  
+R_R3         $N_0005 $N_0008  15.915k  
+C_C1         $N_0008 $N_0009  0.01u  
+R_R4         0 $N_0009  15.915k  
+C_C2         0 $N_0001  0.01u  
+
+**** RESUMING 5a1.cir ****
+.INC "5a1.als"
+
+
+
+**** INCLUDING 5a1.als ****
+* Schematics Aliases *
+
+.ALIASES
+X_U1            U1(+=$N_0001 -=$N_0002 V+=$N_0003 V-=$N_0004 OUT=$N_0005 )
+V_V1            V1(+=0 -=$N_0004 )
+V_V2            V2(+=$N_0003 -=0 )
+R_R1            R1(1=$N_0005 2=$N_0002 )
+R_R2            R2(1=$N_0002 2=0 )
+R_R3            R3(1=$N_0005 2=$N_0008 )
+C_C1            C1(1=$N_0008 2=$N_0009 )
+R_R4            R4(1=0 2=$N_0009 )
+C_C2            C2(1=0 2=$N_0001 )
+.ENDALIASES
+
+
+**** RESUMING 5a1.cir ****
+.probe
+
+
+.END
+
+**** 11/25/20 20:28:26 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5a1.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.dx         
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 11/25/20 20:28:26 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5a1.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         
+               NPN             
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 11/25/20 20:28:26 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5a1.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)    1.4632 (X_U1.7)  -11.6330 (X_U1.8)  -11.6330 (X_U1.9)    0.0000     
+
+($N_0001)   -4.1365                   ($N_0002)   -3.8719                       
+
+($N_0003)   12.0000                   ($N_0004)  -12.0000                       
+
+($N_0005)  -11.6130                   ($N_0008)  -11.6130                       
+
+($N_0009)    0.0000                   (X_U1.10)   -4.5104                       
+
+(X_U1.11)   11.9220                   (X_U1.12)   12.0000                       
+
+(X_U1.13)   -4.4831                   (X_U1.14)   -4.5103                       
+
+(X_U1.53)   11.0000                   (X_U1.54)  -11.0000                       
+
+(X_U1.90)    -.4026                   (X_U1.91)   40.0000                       
+
+(X_U1.92)  -40.0000                   (X_U1.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.321E-03
+    V_V2        -1.336E-03
+    X_U1.vb      1.463E-05
+    X_U1.vc      2.261E-11
+    X_U1.ve     -1.551E-05
+    X_U1.vlim   -4.026E-04
+    X_U1.vlp    -4.040E-11
+    X_U1.vln    -3.960E-11
+
+    TOTAL POWER DISSIPATION   3.19E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .02
+

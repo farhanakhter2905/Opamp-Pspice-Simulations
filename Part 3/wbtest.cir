@@ -1,0 +1,22 @@
+* F:\Study\2nd year\Analog electronic circuit\lab\wbtest.SCH
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Mar 21 19:02:09 2021
+
+
+
+** Analysis setup **
+.tran 1ns 5ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "wbtest.net"
+.INC "wbtest.als"
+
+
+.probe
+
+
+.END

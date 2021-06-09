@@ -1,0 +1,172 @@
+
+**** 11/19/20 00:13:16 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5A.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Nov 19 00:13:12 2020
+
+
+
+** Analysis setup **
+.tran 0ns 10ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "5A.net"
+
+**** INCLUDING 5A.net ****
+* Schematics Netlist *
+
+
+
+R_R2         0 $N_0001  10k  
+V_V1         $N_0002 0 12
+V_V2         0 $N_0003 12
+C_C1         $N_0004 $N_0005  0.01u  
+C_C2         0 $N_0004  0.01u  
+R_R5         0 $N_0004  15.9k  
+R_R1         $N_0005 $N_0006  15.9k  
+R_R3         $N_0001 $N_0006 {50k*0.5+.001}
+R_R4         $N_0007 0  2.5k  
+X_U1         $N_0004 $N_0001 $N_0002 $N_0003 $N_0007 uA741
+
+**** RESUMING 5A.cir ****
+.INC "5A.als"
+
+
+
+**** INCLUDING 5A.als ****
+* Schematics Aliases *
+
+.ALIASES
+R_R2            R2(1=0 2=$N_0001 )
+V_V1            V1(+=$N_0002 -=0 )
+V_V2            V2(+=0 -=$N_0003 )
+C_C1            C1(1=$N_0004 2=$N_0005 )
+C_C2            C2(1=0 2=$N_0004 )
+R_R5            R5(1=0 2=$N_0004 )
+R_R1            R1(1=$N_0005 2=$N_0006 )
+R_R3            R3(1=$N_0001 2=$N_0006 )
+R_R4            R4(1=$N_0007 2=0 )
+X_U1            U1(+=$N_0004 -=$N_0001 V+=$N_0002 V-=$N_0003 OUT=$N_0007 )
+.ENDALIASES
+
+
+**** RESUMING 5A.cir ****
+.probe
+
+
+.END
+
+**** 11/19/20 00:13:16 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5A.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.dx         
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 11/19/20 00:13:16 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5A.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         
+               NPN             
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 11/19/20 00:13:16 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\LAB 4\5A.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)     .0083 (X_U1.7)  -11.7040 (X_U1.8)  -11.7040 (X_U1.9)    0.0000     
+
+($N_0001)-802.0E-06                   ($N_0002)   12.0000                       
+
+($N_0003)  -12.0000                   ($N_0004)    -.0013                       
+
+($N_0005)-802.0E-06                   ($N_0006)-802.0E-06                       
+
+($N_0007)  -11.4750                   (X_U1.10)    -.6087                       
+
+(X_U1.11)   11.9600                   (X_U1.12)   11.9610                       
+
+(X_U1.13)    -.5947                   (X_U1.14)    -.5949                       
+
+(X_U1.53)   11.0000                   (X_U1.54)  -11.0000                       
+
+(X_U1.90)   -4.5901                   (X_U1.91)   40.0000                       
+
+(X_U1.92)  -40.0000                   (X_U1.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.337E-03
+    V_V2        -1.337E-03
+    X_U1.vb      8.265E-08
+    X_U1.vc      2.248E-11
+    X_U1.ve     -7.550E-08
+    X_U1.vlim   -4.590E-03
+    X_U1.vlp    -4.459E-11
+    X_U1.vln    -3.541E-11
+
+    TOTAL POWER DISSIPATION   3.21E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .02
+
