@@ -1,0 +1,171 @@
+
+**** 10/31/20 18:58:53 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\l2\sTrigger1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Oct 31 18:58:49 2020
+
+
+
+** Analysis setup **
+.tran 0ns 30ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "sTrigger1.net"
+
+**** INCLUDING sTrigger1.net ****
+* Schematics Netlist *
+
+
+
+R_R2         $N_0002 $N_0001  10k  
+V_V3         0 $N_0003 12V
+V_V1         $N_0004 0 DC 0 AC 0
++SIN 0 12 100 0 0 0
+V_V2         $N_0005 0 12V
+X_U1         $N_0001 $N_0006 $N_0005 $N_0003 $N_0007 uA741
+R_R3         $N_0001 $N_0007  30k  
+R_R1         $N_0004 $N_0006  7.5k  
+V_V4         $N_0002 0 -1.334
+
+**** RESUMING sTrigger1.cir ****
+.INC "sTrigger1.als"
+
+
+
+**** INCLUDING sTrigger1.als ****
+* Schematics Aliases *
+
+.ALIASES
+R_R2            R2(1=$N_0002 2=$N_0001 )
+V_V3            V3(+=0 -=$N_0003 )
+V_V1            V1(+=$N_0004 -=0 )
+V_V2            V2(+=$N_0005 -=0 )
+X_U1            U1(+=$N_0001 -=$N_0006 V+=$N_0005 V-=$N_0003 OUT=$N_0007 )
+R_R3            R3(1=$N_0001 2=$N_0007 )
+R_R1            R1(1=$N_0004 2=$N_0006 )
+V_V4            V4(+=$N_0002 -=0 )
+.ENDALIASES
+
+
+**** RESUMING sTrigger1.cir ****
+.probe
+
+
+.END
+
+**** 10/31/20 18:58:53 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\l2\sTrigger1.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.dx         
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 10/31/20 18:58:53 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\l2\sTrigger1.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         
+               NPN             
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 10/31/20 18:58:53 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\l2\sTrigger1.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)-379.9E-06 (X_U1.7)    4.0087 (X_U1.8)    4.0087 (X_U1.9)    0.0000     
+
+($N_0001)-597.2E-06                   ($N_0002)   -1.3340                       
+
+($N_0003)  -12.0000                   ($N_0004)    0.0000                       
+
+($N_0005)   12.0000                   ($N_0006)-598.1E-06                       
+
+($N_0007)    4.0020                   (X_U1.10)    -.6083                       
+
+(X_U1.11)   11.9600                   (X_U1.12)   11.9600                       
+
+(X_U1.13)    -.5944                   (X_U1.14)    -.5944                       
+
+(X_U1.53)   11.0000                   (X_U1.54)  -11.0000                       
+
+(X_U1.90)     .1334                   (X_U1.91)   40.0000                       
+
+(X_U1.92)  -40.0000                   (X_U1.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V3        -1.337E-03
+    V_V1        -7.974E-08
+    V_V2        -1.337E-03
+    V_V4         1.333E-04
+    X_U1.vb     -3.799E-09
+    X_U1.vc      6.998E-12
+    X_U1.ve      1.500E-11
+    X_U1.vlim    1.334E-04
+    X_U1.vlp    -3.987E-11
+    X_U1.vln    -4.014E-11
+
+    TOTAL POWER DISSIPATION   3.23E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .03
+

@@ -1,0 +1,22 @@
+* F:\Study\2nd year\Analog electronic circuit\lab\l2\SquareWave1.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Mon Nov 02 14:36:06 2020
+
+
+
+** Analysis setup **
+.tran 0ns 5ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "SquareWave1.net"
+.INC "SquareWave1.als"
+
+
+.probe
+
+
+.END

@@ -1,0 +1,199 @@
+
+**** 10/31/20 20:47:24 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\l2\SawWave1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Oct 31 20:46:47 2020
+
+
+
+** Analysis setup **
+.tran 0ns 5ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "SawWave1.net"
+
+**** INCLUDING SawWave1.net ****
+* Schematics Netlist *
+
+
+
+V_V1         $N_0001 0 12
+V_V2         0 $N_0002 12
+V_V4         $N_0003 0 12
+V_V5         0 $N_0004 12
+X_U1         $N_0005 0 $N_0001 $N_0002 $N_0006 uA741
+C_C2         $N_0009 $N_0010  0.1uF  
+X_U2         $N_0011 $N_0009 $N_0003 $N_0004 $N_0010 uA741
+R_R1         $N_0006 $N_0005  10k  
+R_R2         $N_0005 $N_0010  4.1667k  
+V_V6         0 $N_0011 2.4
+R_R4         $N_0006 $N_0009  11.52k  
+
+**** RESUMING SawWave1.cir ****
+.INC "SawWave1.als"
+
+
+
+**** INCLUDING SawWave1.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_V1            V1(+=$N_0001 -=0 )
+V_V2            V2(+=0 -=$N_0002 )
+V_V4            V4(+=$N_0003 -=0 )
+V_V5            V5(+=0 -=$N_0004 )
+X_U1            U1(+=$N_0005 -=0 V+=$N_0001 V-=$N_0002 OUT=$N_0006 )
+C_C2            C2(1=$N_0009 2=$N_0010 )
+X_U2            U2(+=$N_0011 -=$N_0009 V+=$N_0003 V-=$N_0004 OUT=$N_0010 )
+R_R1            R1(1=$N_0006 2=$N_0005 )
+R_R2            R2(1=$N_0005 2=$N_0010 )
+V_V6            V6(+=0 -=$N_0011 )
+R_R4            R4(1=$N_0006 2=$N_0009 )
+.ENDALIASES
+
+
+**** RESUMING SawWave1.cir ****
+.probe
+
+
+.END
+
+**** 10/31/20 20:47:24 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\l2\SawWave1.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.dx         X_U2.dx         
+          IS  800.000000E-18  800.000000E-18 
+          RS    1               1            
+
+
+**** 10/31/20 20:47:24 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\l2\SawWave1.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         X_U2.qx         
+               NPN             NPN             
+          IS  800.000000E-18  800.000000E-18 
+          BF   93.75           93.75         
+          NF    1               1            
+          BR    1               1            
+          NR    1               1            
+          CN    2.42            2.42         
+           D     .87             .87         
+
+
+**** 10/31/20 20:47:24 *********** Evaluation PSpice (Nov 1999) **************
+
+ * F:\Study\2nd year\Analog electronic circuit\lab\l2\SawWave1.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6) 230.0E-06 (X_U1.7)   -2.4110 (X_U1.8)   -2.4110 (X_U1.9)    0.0000     
+
+(X_U2.6)-97.87E-06 (X_U2.7)    1.0119 (X_U2.8)    1.0119 (X_U2.9)    0.0000     
+
+($N_0001)   12.0000                   ($N_0002)  -12.0000                       
+
+($N_0003)   12.0000                   ($N_0004)  -12.0000                       
+
+($N_0005)-31.48E-06                   ($N_0006)   -2.3990                       
+
+($N_0009)   -2.3999                   ($N_0010)     .9999                       
+
+($N_0011)   -2.4000                   (X_U1.10)    -.6077                       
+
+(X_U1.11)   11.9600                   (X_U1.12)   11.9600                       
+
+(X_U1.13)    -.5938                   (X_U1.14)    -.5938                       
+
+(X_U1.53)   11.0000                   (X_U1.54)  -11.0000                       
+
+(X_U1.90)    -.2398                   (X_U1.91)   40.0000                       
+
+(X_U1.92)  -40.0000                   (X_U1.99)    0.0000                       
+
+(X_U2.10)   -3.0071                   (X_U2.11)   11.9610                       
+
+(X_U2.12)   11.9610                   (X_U2.13)   -2.9934                       
+
+(X_U2.14)   -2.9935                   (X_U2.53)   11.0000                       
+
+(X_U2.54)  -11.0000                   (X_U2.90)     .2400                       
+
+(X_U2.91)   40.0000                   (X_U2.92)  -40.0000                       
+
+(X_U2.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.337E-03
+    V_V2        -1.337E-03
+    V_V4        -1.336E-03
+    V_V5        -1.337E-03
+    V_V6         7.869E-08
+    X_U1.vb      2.300E-09
+    X_U1.vc      1.340E-11
+    X_U1.ve      8.601E-12
+    X_U1.vlim   -2.398E-04
+    X_U1.vlp    -4.024E-11
+    X_U1.vln    -3.976E-11
+    X_U2.vb     -9.787E-10
+    X_U2.vc      1.000E-11
+    X_U2.ve      1.200E-11
+    X_U2.vlim    2.400E-04
+    X_U2.vlp    -3.976E-11
+    X_U2.vln    -4.024E-11
+
+    TOTAL POWER DISSIPATION   6.42E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .05
+

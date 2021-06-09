@@ -1,0 +1,22 @@
+* F:\Study\2nd year\Analog electronic circuit\lab\l2\sTrigger2.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Oct 31 20:21:02 2020
+
+
+
+** Analysis setup **
+.tran 0ns 30ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "sTrigger2.net"
+.INC "sTrigger2.als"
+
+
+.probe
+
+
+.END

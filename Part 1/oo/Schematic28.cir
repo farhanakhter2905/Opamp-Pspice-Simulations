@@ -1,0 +1,22 @@
+* F:\Study\2nd year\Analog electronic circuit\lab\l2\oo\Schematic28.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Mon Nov 02 14:25:14 2020
+
+
+
+** Analysis setup **
+.tran 0ns 2ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Schematic28.net"
+.INC "Schematic28.als"
+
+
+.probe
+
+
+.END
